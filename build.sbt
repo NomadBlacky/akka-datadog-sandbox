@@ -2,7 +2,7 @@ ThisBuild / scalaVersion := "2.13.8"
 ThisBuild / organization := "dev.nomadblacky"
 ThisBuild / organizationName := "NomadBlacky"
 
-val AkkaVersion  = "2.6.14"
+val AkkaVersion  = "2.6.18"
 val KamonVersion = "2.5.0"
 
 lazy val root = (project in file("."))
