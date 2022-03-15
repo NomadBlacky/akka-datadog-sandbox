@@ -25,5 +25,7 @@ object Main {
         .force
       println("Done.")
     }
+
+    Kamon.stop()
   }
 }
