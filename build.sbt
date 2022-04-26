@@ -14,7 +14,7 @@ lazy val root = (project in file("."))
       "com.typesafe.akka"  %% "akka-stream"              % AkkaVersion,
       "io.kamon"           %% "kamon-bundle"             % KamonVersion,
       "io.kamon"           %% "kamon-datadog"            % KamonVersion,
-      "org.scalatest"      %% "scalatest"                % "3.2.11" % Test
+      "org.scalatest"      %% "scalatest"                % "3.2.12" % Test
     ),
     fork := true,
     javaOptions ++= Seq(
