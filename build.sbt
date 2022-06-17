@@ -6,7 +6,7 @@ val AkkaVersion  = "2.6.18"
 val KamonVersion = "2.5.0"
 
 lazy val root = (project in file("."))
-  .enablePlugins(JavaAppPackaging, DockerPlugin)
+  .enablePlugins(JavaAppPackaging, DockerPlugin, JavaAgent)
   .settings(
     name := "akka-datadog-sandbox",
     libraryDependencies ++= Seq(
@@ -14,11 +14,19 @@ lazy val root = (project in file("."))
       "com.typesafe.akka"  %% "akka-stream"              % AkkaVersion,
       "io.kamon"           %% "kamon-bundle"             % KamonVersion,
       "io.kamon"           %% "kamon-datadog"            % KamonVersion,
-      "org.scalatest"      %% "scalatest"                % "3.2.11" % Test
+      "org.scalatest"      %% "scalatest"                % "3.2.11" % Test,
+      "ch.qos.logback"      % "logback-classic"          % "1.2.11"
     ),
-    fork := true,
+    run / fork := true,
+//    javaAgents ++= Seq(
+//      "com.datadoghq" % "dd-java-agent" % "0.102.0" % "runtime"
+//    ),
     javaOptions ++= Seq(
-      "-XX:StartFlightRecording=dumponexit=true"
+      "-XX:StartFlightRecording=dumponexit=true",
+      "-XX:FlightRecorderOptions=stackdepth=256"
+//      "-Ddd.logs.injection=true",
+//      "-Ddd.trace.sample.rate=1",
+//      "-Ddd.profiling.enabled=true"
     ),
     dockerBaseImage := "openjdk:11"
   )

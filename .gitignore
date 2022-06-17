@@ -110,3 +110,4 @@ project/plugins/project/
 
 .bsp
 *.jfr
+.env
