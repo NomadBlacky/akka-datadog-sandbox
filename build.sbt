@@ -14,7 +14,7 @@ lazy val root = (project in file("."))
       "com.typesafe.akka"  %% "akka-stream"              % AkkaVersion,
       "io.kamon"           %% "kamon-bundle"             % KamonVersion,
       "io.kamon"           %% "kamon-datadog"            % KamonVersion,
-      "org.scalatest"      %% "scalatest"                % "3.2.11" % Test,
+      "org.scalatest"      %% "scalatest"                % "3.2.12" % Test,
       "ch.qos.logback"      % "logback-classic"          % "1.2.11"
     ),
     run / fork := true,
