@@ -1,0 +1,14 @@
+version: "3"
+services:
+  datadog:
+    image: gcr.io/datadoghq/agent:7
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+    environment:
+      DD_API_KEY: $AKKA_DATADOG_SANDBOX_DD_API_KEY
+      DD_APM_ENABLED: true
+    ports:
+      - "8125:8125/udp"
+      - "8126:8126/tcp"
