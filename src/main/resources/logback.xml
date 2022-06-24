@@ -8,7 +8,14 @@
         </encoder>
     </appender>
 
-    <root level="trace">
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./logs/out.log</file>
+        <append>true</append>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+    </appender>
+
+    <root level="debug">
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
     </root>
 </configuration>

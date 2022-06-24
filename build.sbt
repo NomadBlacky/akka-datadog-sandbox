@@ -10,12 +10,15 @@ lazy val root = (project in file("."))
   .settings(
     name := "akka-datadog-sandbox",
     libraryDependencies ++= Seq(
-      "com.lightbend.akka" %% "akka-stream-alpakka-file" % "3.0.4",
-      "com.typesafe.akka"  %% "akka-stream"              % AkkaVersion,
-      "io.kamon"           %% "kamon-bundle"             % KamonVersion,
-      "io.kamon"           %% "kamon-datadog"            % KamonVersion,
-      "org.scalatest"      %% "scalatest"                % "3.2.11" % Test,
-      "ch.qos.logback"      % "logback-classic"          % "1.2.11"
+      "com.lightbend.akka"         %% "akka-stream-alpakka-file" % "3.0.4",
+      "com.typesafe.akka"          %% "akka-stream"              % AkkaVersion,
+      "com.typesafe.akka"          %% "akka-http"                % "10.2.9",
+      "io.kamon"                   %% "kamon-bundle"             % KamonVersion,
+      "io.kamon"                   %% "kamon-datadog"            % KamonVersion,
+      "org.scalatest"              %% "scalatest"                % "3.2.11" % Test,
+      "ch.qos.logback"              % "logback-classic"          % "1.2.11",
+      "com.typesafe.scala-logging" %% "scala-logging"            % "3.9.4",
+      "net.logstash.logback"        % "logstash-logback-encoder" % "7.2"
     ),
     run / fork := true,
 //    javaAgents ++= Seq(
