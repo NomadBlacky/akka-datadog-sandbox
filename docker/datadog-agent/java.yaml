@@ -1,0 +1,6 @@
+logs:
+  - type: file
+    path: /var/log/akka-datadog-sandbox/out.log
+    service: akka-datadog-sandbox
+    source: java
+    sourcecategory: sourcecode
