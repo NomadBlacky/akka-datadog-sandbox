@@ -30,8 +30,8 @@ object Main extends StrictLogging {
 
     val span = Kamon.spanBuilder("main").kind(Kind.Internal).tag("foo", "bar").mark("hoge").start()
 
-    logger.info("Start")
     Kamon.runWithSpan(span, finishSpan = true) {
+      logger.info("Start")
       val f1 = exampleSlowProcess()
       val f2 = exampleHTTPProcess()
       val awaitable = for {
@@ -39,8 +39,9 @@ object Main extends StrictLogging {
         _ <- f2
       } yield ()
       Await.ready(awaitable, Duration.Inf)
+      logger.error("EXAMPLE ERROR LOG", new RuntimeException("oops!"))
+      logger.info("Done the process")
     }
-    logger.info("Done the process")
   } finally {
     Await.ready(Kamon.stop(), Duration.Inf)
     Await.ready(system.terminate(), Duration.Inf)
