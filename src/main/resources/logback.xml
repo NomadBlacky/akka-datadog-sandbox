@@ -1,5 +1,9 @@
 <configuration>
 
+    <!-- https://github.com/kamon-io/Kamon/issues/1012 -->
+    <conversionRule conversionWord="ddTraceId" converterClass="example.KamonDatadogTraceIdToLogback" />`
+    <conversionRule conversionWord="ddSpanId" converterClass="example.KamonDatadogSpanIdToLogback" />`
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoders are assigned the type
              ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
@@ -11,7 +15,29 @@
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>./logs/out.log</file>
         <append>true</append>
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp/>
+                <version/>
+                <message/>
+                <loggerName/>
+                <threadName/>
+                <logLevel/>
+                <logLevelValue/>
+                <stackTrace/>
+                <mdc/>
+                <pattern>
+                    <pattern>
+                        {
+                          "dd": {
+                            "trace_id": "%ddTraceId",
+                            "span_id": "%ddSpanId"
+                          }
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
     </appender>
 
     <root level="debug">
