@@ -55,7 +55,7 @@ object Main extends StrictLogging {
         .traverse((1 to 20).toList) { _ =>
           Future {
             Kamon.span("random") {
-              Thread.sleep(1000L)
+              Thread.sleep(10000L)
               val d = Random.between(0d, 100d)
               logger.info(s"$d")
               metric.update(d)
