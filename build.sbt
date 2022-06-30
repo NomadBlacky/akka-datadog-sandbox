@@ -2,7 +2,7 @@ ThisBuild / scalaVersion := "2.13.8"
 ThisBuild / organization := "dev.nomadblacky"
 ThisBuild / organizationName := "NomadBlacky"
 
-val AkkaVersion  = "2.6.18"
+val AkkaVersion  = "2.6.19"
 val KamonVersion = "2.5.5"
 
 lazy val root = (project in file("."))
@@ -15,9 +15,9 @@ lazy val root = (project in file("."))
       "com.typesafe.akka"          %% "akka-http"                % "10.2.9",
       "io.kamon"                   %% "kamon-bundle"             % KamonVersion,
       "io.kamon"                   %% "kamon-datadog"            % KamonVersion,
-      "org.scalatest"              %% "scalatest"                % "3.2.11" % Test,
+      "org.scalatest"              %% "scalatest"                % "3.2.12" % Test,
       "ch.qos.logback"              % "logback-classic"          % "1.2.11",
-      "com.typesafe.scala-logging" %% "scala-logging"            % "3.9.4",
+      "com.typesafe.scala-logging" %% "scala-logging"            % "3.9.5",
       "net.logstash.logback"        % "logstash-logback-encoder" % "7.2"
     ),
     run / fork := true,
