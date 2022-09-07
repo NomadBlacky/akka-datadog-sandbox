@@ -10,7 +10,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "akka-datadog-sandbox",
     libraryDependencies ++= Seq(
-      "com.lightbend.akka"         %% "akka-stream-alpakka-file" % "3.0.4",
+      "com.lightbend.akka"         %% "akka-stream-alpakka-file" % "4.0.0",
       "com.typesafe.akka"          %% "akka-stream"              % AkkaVersion,
       "com.typesafe.akka"          %% "akka-http"                % "10.2.9",
       "io.kamon"                   %% "kamon-bundle"             % KamonVersion,
