@@ -12,7 +12,7 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "com.lightbend.akka"         %% "akka-stream-alpakka-file" % "3.0.4",
       "com.typesafe.akka"          %% "akka-stream"              % AkkaVersion,
-      "com.typesafe.akka"          %% "akka-http"                % "10.2.9",
+      "com.typesafe.akka"          %% "akka-http"                % "10.2.10",
       "io.kamon"                   %% "kamon-bundle"             % KamonVersion,
       "io.kamon"                   %% "kamon-datadog"            % KamonVersion,
       "org.scalatest"              %% "scalatest"                % "3.2.12" % Test,
