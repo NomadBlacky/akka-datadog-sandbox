@@ -3,7 +3,7 @@ ThisBuild / organization := "dev.nomadblacky"
 ThisBuild / organizationName := "NomadBlacky"
 
 val AkkaVersion  = "2.6.19"
-val KamonVersion = "2.5.5"
+val KamonVersion = "2.5.10"
 
 lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging, DockerPlugin, JavaAgent)
