@@ -18,7 +18,7 @@ lazy val root = (project in file("."))
       "org.scalatest"              %% "scalatest"                % "3.2.12" % Test,
       "ch.qos.logback"              % "logback-classic"          % "1.2.11",
       "com.typesafe.scala-logging" %% "scala-logging"            % "3.9.5",
-      "net.logstash.logback"        % "logstash-logback-encoder" % "7.2"
+      "net.logstash.logback"        % "logstash-logback-encoder" % "7.4"
     ),
     run / fork := true,
 //    javaAgents ++= Seq(
